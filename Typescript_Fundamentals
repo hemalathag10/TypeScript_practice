@@ -1,0 +1,121 @@
+SAMPLE PROGRAM
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript: Hello, World!</title>
+</head>
+<body>
+    <script src="app.js"></script>
+</body>
+</html>
+----
+(app.ts)
+let message: string = 'Hello!';
+let heading = document.createElement('h1');
+heading.textContent = message;
+document.body.appendChild(heading);
+----------------------------------------------------------------------------------
+define the “shape” of the product object using an interface
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
+
+function getProduct(id: number): Product {
+  return {
+    id: id,
+    name: `Awesome Gadget ${id}`,
+    price: 99.5,
+  };
+}
+
+let product = getProduct(1);
+console.log(`The product ${product.name} costs $${product.price}`);
+-------------------------------------------------------------------------------
+TYPE ANNOTATION
+
+let name: string = 'John';
+let age: number = 25;
+let active: boolean = true;
+let names: string[] = ['John', 'Jane', 'Peter', 'David', 'Mary'];
+
+OBJECT:
+let person: {
+   name: string;
+   age: number
+};
+
+person = {
+   name: 'John',
+   age: 25
+}; // valid
+
+FUNCTION:
+
+let greeting : (name: string) => string;
+greeting = function (name: string) {
+    return `Hi ${name}`;
+};
+
+------------------------------------------------------------------------------
+ARRAY
+
+REDUCE:
+let series = [1, 2, 3];
+let doubleSum = series.reduce((accumulator, currentElement) => accumulator + (currentElement * 2), 0);
+console.log(doubleSum);
+
+MAP:
+let series = [1, 2, 3];
+let doubleIt = series.map(e => e* 2);
+console.log(doubleIt);
+
+FILTER:
+
+let numbers = [1, 2, 3, 4, 5, 6];
+// Filter even numbers
+let evenNumbers = numbers.filter(number => number % 2 === 0);
+console.log("Even numbers:", evenNumbers);
+
+FOREACH:
+let fruits = ["apple", "banana", "orange", "kiwi"];
+// Log each fruit to the console
+fruits.forEach(fruit => {
+  console.log(fruit);
+});
+
+
+STORING VALUE OF MIXED TYPES:
+let scores : (string | number)[];
+scores = ['aaa', 5, 'bbb', 4]; 
+------------------------------------------------------------------------
+
+TUPLE
+Optional Tuple Elements:
+let bgColor, headerColor: [number, number, number, number?];
+bgColor = [0, 255, 255, 0.5];
+headerColor = [0, 255, 255];
+
+------------------------------------------------------------
+//Enum definition
+enum ApprovalStatus {
+  draft,
+  submitted,
+  approved,
+  rejected
+}
+
+const request = {
+  id: 1,
+  status: ApprovalStatus.approved,
+  description: 'Please approve this request'
+};
+
+if (request.status === ApprovalStatus.approved) {
+  console.log('Send email ');
+}
