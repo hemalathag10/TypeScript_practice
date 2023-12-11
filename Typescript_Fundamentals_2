@@ -1,0 +1,64 @@
+1)   NEVER TYPE : It is often used to indicate functions that never return or expressions that always throw an exception. 
+
+function throwTypeerror(str: string): never { 
+throw new TypeError(str); 
+} 
+
+// Return type of this function is "never" 
+function func() { 
+return throwTypeerror("a type error is being raised"); 
+} 
+
+// Function call 
+func()
+--------------------------------------------------------------------------------------------------------
+2)   UNION TYPE
+// Function that accepts either a string or a number or a boolean
+function display(value: string | number | boolean): void {
+    console.log(value);
+}
+
+display("Hello, TypeScript!"); // Output: Hello, TypeScript!
+display(42); // Output: 42
+
+display(true); 
+-------------------------------------------------------------------------------------------------------
+
+3)   TYPE ALIASES
+type roll_no = number
+type std_name = string
+type dept = string
+type clg = {
+  id: roll_no,
+  name: std_name,
+  depart: dept
+}
+
+const num: roll_no = 200
+const nam: std_name = "HEMA"
+const dp: dept = "MCA"
+const college: clg = {
+  id: num,
+  name: nam,
+  depart: dp
+};
+console.log(college)
+------------------------------------------------------------------------------------------------------
+
+4)   STRING LITERAL TYPES
+let stat: 'approved' | 'rejected';
+stat='pending'
+console.log(stat)
+----------------------------------------------------------------------------------------------------
+
+5)   TYPE INFERENCE
+// TypeScript infers the types of 'a' and 'b' as numbers, and the return type as number
+function add(a: number, b: number) {
+    return a + b;
+}
+console.log(add(2,3))
+// Typescript infers the type of a to string and b to number
+let a="hema"
+let b=100
+console.log(a+"  "+b)
+
