@@ -1,0 +1,53 @@
+BREAK STATEMENT
+
+const fruits: string[] = ["Apple", "Banana", "Orange", "Grapes", "Mango"];
+const targetFruit: string = "Orange";
+
+let found = false;
+
+for (let i = 0; i < fruits.length; i++) {
+    if (fruits[i] === targetFruit) {
+        found = true;
+        console.log(`${targetFruit} found at index ${i}.`);
+        break; // Stop searching once the target fruit is found
+    }
+}
+
+if (!found) {
+    console.log(`${targetFruit} not found in the array.`);
+}
+
+OUTPUT :
+Orange found at index 2.
+
+------------------------------------------------------------------------
+CONTINUE STATEMENT
+
+const studentScores: number[] = [85, 92, 78, 65, 90, 88, 75, 95];
+const passingScore: number = 70;
+
+let totalScore = 0;
+let numberOfPassingStudents = 0;
+
+for (let i = 0; i < studentScores.length; i++) {
+    if (studentScores[i] < passingScore) {
+        // Skip processing for students with scores below passingScore
+        continue;
+    }
+    totalScore += studentScores[i];
+    numberOfPassingStudents++;
+}
+
+let averageScore = 0;
+
+// Avoid division by zero
+if (numberOfPassingStudents > 0) {
+    averageScore = totalScore / numberOfPassingStudents;
+}
+
+console.log(`Number of passing students: ${numberOfPassingStudents}`);
+console.log(`Average score of passing students: ${averageScore.toFixed(2)}`);
+
+OUTPUT:
+Number of passing students: 7
+Average score of passing students: 86.14
