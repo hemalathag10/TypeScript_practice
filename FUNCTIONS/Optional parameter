@@ -1,0 +1,21 @@
+// Function with an optional parameter
+function exampleFunction(arg1: number, arg2?: string): string {
+    if (arg2 !== undefined) {
+        return `Arguments: ${arg1}, ${arg2.toUpperCase()}`;
+    } else {
+        // arg2 is treated as undefined here
+        return `Argument: ${arg1}`;
+    }
+}
+
+// Example usage
+const result1 = exampleFunction(42, "hello");
+console.log(result1); 
+
+Output: Arguments: 42, HELLO
+
+const result2 = exampleFunction(42);
+console.log(result2); 
+
+Output: Argument: 42
+
