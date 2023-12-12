@@ -1,0 +1,85 @@
+SIMPLE SWITCH CASE
+
+function getDayOfWeek(dayNumber: number): string {
+    let dayName: string;
+
+    switch (dayNumber) {
+        case 1:
+            dayName = 'Monday';
+            break;
+        case 2:
+            dayName = 'Tuesday';
+            break;
+        case 3:
+            dayName = 'Wednesday';
+            break;
+        case 4:
+            dayName = 'Thursday';
+            break;
+        case 5:
+            dayName = 'Friday';
+            break;
+        case 6:
+            dayName = 'Saturday';
+            break;
+        case 7:
+            dayName = 'Sunday';
+            break;
+        default:
+            dayName = 'Invalid day';
+    }
+
+    return dayName;
+}
+
+const dayNumber1 = 3;
+const dayNumber2 = 6;
+const dayNumber3 = 8;
+
+console.log(`Day ${dayNumber1} is ${getDayOfWeek(dayNumber1)}.`);
+
+console.log(`Day ${dayNumber2} is ${getDayOfWeek(dayNumber2)}.`);
+
+console.log(`Day ${dayNumber3} is ${getDayOfWeek(dayNumber3)}.`);
+
+OUTPUT:
+Day 3 is Wednesday.
+Day 6 is Saturday.
+Day 8 is Invalid day.
+-----------------------------------------------------------------------------------------
+GROUP CASE
+
+function getDayType(dayNumber: number): string {
+    let dayType: string;
+
+    switch (dayNumber) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            dayType = 'Weekday';
+            break;
+        case 6:
+        case 7:
+            dayType = 'Weekend';
+            break;
+        default:
+            dayType = 'Invalid day';
+    }
+
+    return dayType;
+}
+
+const dayNumber1 = 3; // Wednesday
+const dayNumber2 = 6; // Saturday
+const dayNumber3 = 8; // Invalid day
+
+console.log(`Day ${dayNumber1} is a ${getDayType(dayNumber1)}.`);
+console.log(`Day ${dayNumber2} is a ${getDayType(dayNumber2)}.`);
+console.log(`Day ${dayNumber3} is ${getDayType(dayNumber3)}.`);
+
+OUTPUT:
+Day 3 is a Weekday.
+Day 6 is a Weekend.
+Day 8 is Invalid day.
