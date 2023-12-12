@@ -1,0 +1,16 @@
+const fruits: string[] = ["Apple", "Banana", "Orange", "Grapes"];
+
+console.log("Using a while loop to iterate over the array:");
+let index = 0;
+
+while (index < fruits.length) {
+    console.log(fruits[index]);
+    index++;
+}
+
+OUTPUT:
+Using a while loop to iterate over the array:
+Apple
+Banana
+Orange
+Grapes
