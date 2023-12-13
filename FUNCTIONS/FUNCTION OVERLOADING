@@ -1,0 +1,18 @@
+// Function overloading with different signatures
+function greet(person: string): string;
+function greet(person: string, age: number): string;
+function greet(person: string, age?: number): string {
+    if (age === undefined) {
+        return `Hello, ${person}!`;
+    } else {
+        return `Hello, ${person}! You are ${age} years old.`;
+    }
+}
+
+const greeting1: string = greet("Alice");
+console.log(greeting1);
+Output: Hello, Alice!
+
+const greeting2: string = greet("Bob", 25);
+console.log(greeting2); 
+Output: Hello, Bob! You are 25 years old.
