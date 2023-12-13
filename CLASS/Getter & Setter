@@ -1,0 +1,42 @@
+class Car {
+    private model: string;
+    protected brand: string;
+    private _year: number; // Private backing variable
+
+    constructor(model: string, brand: string, year: number) {
+        this.model = model;
+        this.brand = brand;
+        this._year = year; // Use the private backing variable
+    }
+
+    get year(): number {
+        return this._year;
+    }
+
+    set year(value: number) {
+        // You can add validation logic if needed
+        if (value > 1900 && value <= new Date().getFullYear()) {
+            this._year = value;
+        } else {
+            console.error("Invalid year!");
+        }
+    }
+
+    getCarInfo(): string {
+        return `${this.brand}, ${this._year}`;
+    }
+}
+
+const obj = new Car("abc", "ford", 2022);
+
+console.log(`Car Info: ${obj.getCarInfo()}`);
+
+// Using the setter
+obj.year = 2023;
+
+// Accessing the getter
+console.log(`Updated Car Info: ${obj.getCarInfo()}`);
+
+OUTPUT:
+Car Info: ford, 2022
+Updated Car Info: ford, 2023
