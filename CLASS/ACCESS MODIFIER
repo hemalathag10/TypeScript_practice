@@ -1,0 +1,27 @@
+class Car{
+    private model: String
+    protected brand: String
+    public year:number
+    constructor(model:String,brand:String,year:number){
+        this.model=model;
+        this.brand=brand;
+        this.year=year;
+    }
+
+    
+}
+class Car2 extends Car{
+    getCarInfo(){
+        return `${this.brand},${this.year}`
+    }
+}
+
+const obj1=new Car("abc","ford",2022)
+console.log(`car info: ${obj1.year}`)
+// if access brand name it will give compiation error because it is protected access(access only in within a class or subclass) and 
+model(access only in within a class=private)
+
+const obj=new Car2("abc","ford",2022)
+console.log(`car info: ${obj.getCarInfo()}`)
+can access brand name through the sub class of parent class
+
