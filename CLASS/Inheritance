@@ -1,0 +1,56 @@
+class Shape{
+  color:string
+  shape:string
+  constructor(color:string,shape:string){
+    this.color=color
+    this.shape=shape
+  }
+
+  getArea():number{
+    return 0
+  }
+
+  display():void{
+    console.log(`it is ${this.color} color ${this.shape}. `)
+  }
+}
+
+class Circle extends Shape{
+  constructor(shape:string,color:string,public radius:number){super(color,shape)}
+
+  getArea():number{
+    return Math.PI*this.radius**2
+  }
+
+  display():void{
+    super.display()
+    console.log(`it's radius is ${this.radius}cm. `)
+  }
+}
+class Square extends Shape{
+  constructor(shape:string,color:string,public side:number){super(color,shape)}
+
+  getArea():number{
+    return this.side**2
+  }
+
+  display():void{
+    super.display()
+    console.log(`it's side is  ${this.side}cm.`)
+  }
+}
+
+const red=new Circle("circle","red",6)
+red.display()
+console.log(`Area : ${red.getArea()}`)
+
+const green=new Square("square","green",10)
+green.display()
+console.log(`Area :${green.getArea()}`)
+-------------------------------------------------------------------------------------------------------
+it is red color circle.
+it's radius is 6cm.
+Area : 113.09733552923255
+it is green color square.
+it's side is  10cm.
+Area :100
