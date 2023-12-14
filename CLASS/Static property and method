@@ -1,0 +1,34 @@
+class Car{
+  static totalcars:number=0
+  static totalspeed:number=0
+
+  constructor(public brand:string,public speed:number){
+    Car.totalcars++;
+    Car.totalspeed+=speed;
+  }
+  acceleration(acc:number):void{
+    this.speed+=acc
+    Car.totalspeed+=acc
+  }
+  static totalavg():number{
+    if(Car.totalcars==0)
+    return 0
+    else
+    return Car.totalspeed/Car.totalcars
+  }
+}
+const car1 = new Car("Toyota", 60);
+const car2 = new Car("Honda", 80);
+
+// Accessing instance properties
+console.log(car1.brand); 
+console.log(car2.speed); 
+
+// Accessing static property
+console.log(Car.totalcars);
+
+// Accessing static method
+const averageSpeed = Car.totalavg();
+console.log(`Average Speed: ${averageSpeed}`); 
+
+
