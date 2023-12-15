@@ -1,0 +1,59 @@
+interface Bank{
+    acc_no:number
+    name:string
+    amount:number
+    code_no?:number// optional property
+    readonly aadhar_no:number
+    insert(n:string,amt:number,acc_no:number,a:number):void
+    deposit(amount:number):void
+    withDraw(amt:number):string
+    display():string
+}
+let acc : Bank={
+    acc_no:0,
+    name:"",
+    amount:0,
+    aadhar_no:0,
+    insert:function(n,amt,acc_no,a){
+        this.name=n
+        this.amount=amt,
+        this.acc_no=acc_no 
+        this.aadhar_no=a
+    },
+    deposit:function(amt){
+        this.amount=this.amount+amt
+
+    },
+    withDraw : function(amt){
+        if(this.amount<amt)
+        return "not sufficient"
+        else{
+        this.amount=this.amount-amt
+        return `amt withdrawn successfully and balance : ${this.amount}`
+        }
+    },
+    display:function(){
+        return `Account no : ${this.acc_no} Name : ${this.name} Amount: ${this.amount}`
+    }
+
+
+}
+acc.insert("hema",10000,7896541,987456321)
+
+acc.deposit(5000)
+acc.withDraw(5000)
+console.log(acc.display())
+
+//acc.aadhar_no=78545454// readonly property
+----------------------------------------------------------------------------------------------------------
+FUNCTIONS IN INTERFACES
+
+interface Search{
+    (element:number):boolean
+}
+let arr:Array<number>=[7,5,96,12,56]
+const SearchFun:Search=element=>{
+    return arr.filter(data=>data===element).length>0
+}
+let input: number=96
+SearchFun(input)? console.log("found"): console.log("not found")
