@@ -15,8 +15,8 @@ interface Product {
   
     /**
      * Adds a product to the shopping cart or updates its quantity if already present.
-     * @param product - The product to add to the cart.
-     * @param quantity - The quantity of the product to add.
+     *product - The product to add to the cart.
+     * quantity - The quantity of the product to add.
      */
     addToCart(product: Product, quantity: number): void {
       const existingItemIndex = this.items.findIndex(item => item.id === product.id);
@@ -37,7 +37,7 @@ interface Product {
   
     /**
      * Removes a product from the shopping cart.
-     * @param productId - The ID of the product to remove from the cart.
+     *productId - The ID of the product to remove from the cart.
      */
     removeFromCart(productId: number): void {
       this.items = this.items.filter(item => item.id !== productId);
@@ -56,7 +56,7 @@ interface Product {
   const apple: Product = { id: 1, name: 'Apple', price: 1.5 };
   const banana: Product = { id: 2, name: 'Banana', price: 0.75 };
   
-  const shoppingCart = new ShoppingCart();
+  let shoppingCart = new ShoppingCart();
   
   shoppingCart.addToCart(apple, 3);
   shoppingCart.addToCart(banana, 2);
