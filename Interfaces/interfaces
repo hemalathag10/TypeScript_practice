@@ -9,6 +9,7 @@ interface Bank{
     withDraw(amt:number):string
     display():string
 }
+
 let acc : Bank={
     acc_no:0,
     name:"",
