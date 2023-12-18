@@ -24,7 +24,7 @@ class ShoppingCart {
     // Method to view items in the cart
     viewCart(): void {
         // Use nullish operator to check if cartItems is null or undefined
-        const items = this.cartItems ?? [];
+        let items = this.cartItems ?? [];
         if (items.length === 0) {
             console.log("The cart is empty.");
         } else {
@@ -38,7 +38,7 @@ class ShoppingCart {
     // Method to calculate the total price of items in the cart
     calculateTotalPrice(): number {
         // Use nullish operator to check if cartItems is null or undefined
-        const items = this.cartItems ?? [];
+        let items = this.cartItems ?? [];
         return items.reduce((total, currentItem) => {
             return currentItem.inStock ? total + currentItem.price * currentItem.quantity : total;
         }, 0);
