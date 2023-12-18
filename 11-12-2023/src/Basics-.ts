@@ -21,7 +21,7 @@ type Magazine = {
 type StoreItem = Book | Magazine;
 
 // Function to get the item description based on the type
-const getItemDescription = (item: StoreItem): string => {
+let getItemDescription = (item: StoreItem): string => {
   // Use a switch statement to handle different item types
   switch (item.type) {
     // For Book type
@@ -47,7 +47,7 @@ storeItems.forEach((item) => {
 });
 
 // Function to calculate the total price of items in the store
-const calculateTotalPrice = (items: StoreItem[]): number => {
+let calculateTotalPrice = (items: StoreItem[]): number => {
   // Use nullish coalescing operator to handle null or undefined
   const validItems = items ?? [];
 
