@@ -20,10 +20,7 @@ const productName = "Laptop";
 const productPrice = 1200;
 
 // Get user input for discount percentage
-const discountInput = readlineSync.question(`Enter the discount percentage for ${productName} (press Enter for default 5%): `);
-
-// Parse user input as a number, or use the default value if not provided
-const discountPercentage = parseFloat(discountInput) || undefined;
+const discountInput = 5
 
 // Calculate and display the discounted price
 const discountedPrice = calculateDiscountedPrice(productName, productPrice, discountPercentage);
