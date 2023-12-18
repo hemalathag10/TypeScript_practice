@@ -1,3 +1,5 @@
+//(UNION, NEVER, STRING LITERAL,TYPE ALIASES, TYPE INFERENCES)
+
 // Define types for items in the store
 type Book = {
   type: 'book'; // Discriminant property to distinguish book type
