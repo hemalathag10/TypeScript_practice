@@ -27,7 +27,7 @@ const passingScore: number = 70;
 let totalScore = 0;
 let numberOfPassingStudents = 0;
 
-for (const score of studentScores) { // Using 'const' for 'score' in the loop
+for (let score of studentScores) { // Using 'const' for 'score' in the loop
     if (score < passingScore) {
         // Skip processing for students with scores below passingScore
         continue;
