@@ -23,7 +23,7 @@ class ShoppingCart {
      */
     displayCart(): void {
       // Use nullish coalescing to ensure a non-null/undefined array
-      const cartContents = this.items ?? [];
+      let cartContents = this.items ?? [];
   
       // Display the contents of the cart
       console.log('Shopping Cart Contents:');
@@ -34,7 +34,7 @@ class ShoppingCart {
   }
   
   // Example usage of the ShoppingCart class
-  const shoppingCart = new ShoppingCart();
+  let shoppingCart = new ShoppingCart();
   
   // Adding items to the cart using rest parameters
   shoppingCart.addItems('Product A', 'Product B', 'Product C');
