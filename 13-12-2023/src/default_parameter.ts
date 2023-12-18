@@ -14,7 +14,7 @@ class Product {
   
     /**
      * Display information about the product.
-     * @param {boolean} showPrice - Optional: Indicates whether to display the price.
+     * {boolean} showPrice - Optional: Indicates whether to display the price.
      */
     displayInfo(showPrice: boolean = true): void {
       const priceInfo = showPrice ? ` - $${this.price.toFixed(2)}` : '';
