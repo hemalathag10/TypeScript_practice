@@ -4,7 +4,7 @@ class ShoppingCart {
   
     /**
      * Add items to the shopping cart.
-     * @param {...string} products - Products to be added to the cart.
+     {...string} products - Products to be added to the cart.
      */
     addItems(...products: string[]): void {
       // Use nullish coalescing to ensure a non-null/undefined array
