@@ -3,86 +3,66 @@ const userName: string = 'John';
 const age: number = 25;
 const names: string[] = ['John', 'Jane', 'Peter', 'David', 'Mary'];
 
-
 // OBJECT
-const User: {
-    user_name: string;
-    user_age: number;
+const user: {
+    username: string;
+    userage: number;
 } = {
-    user_name: userName,
-    user_age: age
+    username: userName, // Fixed property names to match the type definition
+    userage: age // Fixed property names to match the type definition
 };
-console.log(User.user_name, "  ", User.user_age)
-
-
+console.log(user.username, "  ", user.userage); // Fixed property names to match the type definition
 
 // ARRAY
+const employeeNames: string[] = [];
+employeeNames.push("hema", "abc", "def");
 
-const employee_names: string[] = [];
-employee_names.push("hema", "abc", "def")
-
-for (let index = 0; index < employee_names.length; index++) {
-    console.log(employee_names[index])
+for (const name of employeeNames) {
+    console.log(name);
 }
-
-
 
 // REDUCE
 // SHOPPING CART EXAMPLE
-
-// Array of shopping cart items
-const cartItems = [
+let cartItems: {
+    id: number;
+    name: string;
+    price: number;
+    quantity: number;
+    inStock: boolean;
+}[] = [
     { id: 1, name: 'Laptop', price: 1200, quantity: 2, inStock: true },
     { id: 2, name: 'Mouse', price: 20, quantity: 1, inStock: false },
     { id: 3, name: 'Keyboard', price: 50, quantity: 3, inStock: true },
     { id: 4, name: 'Monitor', price: 300, quantity: 1, inStock: true },
 ];
 
-
 // REDUCE: Calculate the total price of items in the shopping cart
-const totalPrice = cartItems.reduce((accumulator, currentItem) => {
-    if (currentItem.inStock) {
-        return accumulator + currentItem.price * currentItem.quantity;
-    } else {
-        return accumulator;
-    }
+let totalPrice = cartItems.reduce((accumulator, currentItem) => {
+    return currentItem.inStock ? accumulator + currentItem.price * currentItem.quantity : accumulator;
 }, 0);
-
 console.log("Total Price:", totalPrice);
 
-
 // MAP: Update the quantity of each item in the shopping cart
-const updatedQuantities = cartItems.map(item => {
-    return { ...item, quantity: item.quantity + 1 };
-});
+let updatedQuantities = cartItems.map(item => ({ ...item, quantity: item.quantity + 1 }));
 console.log("Updated Quantities:", updatedQuantities);
 
-
-
 // FILTER: Remove items that are out of stock from the shopping cart
-const inStockItems = cartItems.filter(item => item.inStock);
+let inStockItems = cartItems.filter(item => item.inStock);
 console.log("In Stock Items:", inStockItems);
-
 
 // FOREACH
 cartItems.forEach(item => {
     console.log(item);
 });
 
-
-
 // TUPLE
 type CartItem = [string, number, number, boolean];
-
-// Array of shopping cart items as tuples
-const cart_items: CartItem[] = [
+let cart_items: CartItem[] = [
     ['Laptop', 1200, 2, true],
     ['Mouse', 20, 1, false],
     ['Keyboard', 50, 3, true],
     ['Monitor', 300, 1, true],
 ];
-
-
 
 // ENUM DEFINITION
 enum ItemStatus {
@@ -91,7 +71,7 @@ enum ItemStatus {
 }
 
 // INTERFACE FOR SHOPPING CART ITEM
-interface Cart_Item {
+interface CartItemInterface {
     product_name: string;
     price: number;
     quantity: number;
@@ -99,7 +79,7 @@ interface Cart_Item {
 }
 
 // ARRAY OF SHOPPING CART ITEMS
-const cart_Items: Cart_Item[] = [
+let cartItemsInterface: CartItemInterface[] = [
     { product_name: 'Laptop', price: 1200, quantity: 2, status: ItemStatus.InStock },
     { product_name: 'Mouse', price: 20, quantity: 1, status: ItemStatus.OutOfStock },
     { product_name: 'Keyboard', price: 50, quantity: 3, status: ItemStatus.InStock },
@@ -107,6 +87,5 @@ const cart_Items: Cart_Item[] = [
 ];
 
 // FILTER: REMOVE ITEMS THAT ARE OUT OF STOCK FROM THE SHOPPING CART
-const in_stock_items: Cart_Item[] = cart_Items.filter(item => item.status === ItemStatus.InStock);
-
-console.log("In Stock Items:", in_stock_items);
+let inStockItemsInterface: CartItemInterface[] = cartItemsInterface.filter(item => item.status === ItemStatus.InStock);
+console.log("In Stock Items:", inStockItemsInterface);
