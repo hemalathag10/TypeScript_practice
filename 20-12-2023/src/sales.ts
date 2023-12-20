@@ -11,7 +11,14 @@ const numberOfDays: number = parseInt(getUserInput("Enter the number of days: ")
 
 for (let i = 0; i < numberOfDays; i++) {
   const day = `DAY${i + 1}`;
-  const salesQuantity = parseInt(getUserInput(`Enter sales quantity for ${day}: `), 10);
+  let salesQuantity: number | null = null;
+
+  while (salesQuantity === null) {
+    const salesQuantityString = getUserInput(`Enter sales quantity for ${day}: `);
+
+    // Validate sales input
+    salesQuantity = validateNumberInput(salesQuantityString);
+  }
 
   dailySales.push({ day, salesQuantity });
 }
@@ -26,11 +33,22 @@ console.log("\nMaximum product sales pair:");
 console.log(`${maxProductPair[0]} and ${maxProductPair[1]} with a product of ${maxProductPair[2]}`);
 
 console.log("\nIncreasing sales sequence:");
-console.log(`Starting from ${increasingSequence[0]},  ${increasingSequence[1]} days sales is increasing.`);
+console.log(`Starting from ${increasingSequence[0]}, ${increasingSequence[1]} days sales is increasing.`);
 
 function getUserInput(prompt: string): string {
   const input = readlineSync.question(prompt).trim();
   return input;
+}
+
+function validateNumberInput(input: string): number | null {
+  const salesQuantity = parseInt(input, 10);
+
+  if (isNaN(salesQuantity)) {
+    console.error("Error: Please enter a valid number for sales quantity.");
+    return null;
+  }
+
+  return salesQuantity;
 }
 
 function maximumProductPair(salesData: DailySales[]): [string, string, number] {
